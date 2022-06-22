@@ -50,7 +50,6 @@ def get_api_answer(current_timestamp):
     В случае успешного запроса должна вернуть ответ API,
     преобразовав его из формата JSON к типам данных Python.
     """
-
     timestamp = current_timestamp or int(time.time())
     params = {'from_date': timestamp}
     try:
@@ -80,7 +79,6 @@ def check_response(response):
     то функция должна вернуть список домашних работ (он может быть и пустым),
     доступный в ответе API по ключу 'homeworks'.
     """
-
     if type(response) is not dict:
         raise TypeError('Ответ API отличен от словаря')
     try:
@@ -106,7 +104,6 @@ def parse_status(homework):
     для отправки в Telegram строку,
     содержащую один из вердиктов словаря HOMEWORK_STATUSES.
     """
-
     if 'homework_name' not in homework:
         raise KeyError('Отсутствует ключ "homework_name" в ответе API')
     if 'status' not in homework:
@@ -136,14 +133,12 @@ def check_tokens():
     функция возвращает подготовленную для отправки в Telegram строку,
     содержащую один из вердиктов словаря HOMEWORK_STATUSES.
     """
-
     if all([PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID]):
         return True
 
 
 def main():
     """Основная логика работы бота."""
-
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     logging.debug('Бот запущен')
 
