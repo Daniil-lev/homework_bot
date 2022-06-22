@@ -34,7 +34,6 @@ HOMEWORK_STATUSES = {
 
 
 def send_message(bot, message):
-    
     """
     отправляет сообщение в Telegram чат,
     определяемый переменной окружения TELEGRAM_CHAT_ID.
@@ -45,7 +44,6 @@ def send_message(bot, message):
 
 
 def get_api_answer(current_timestamp):
-    
     """
     делает запрос к единственному эндпоинту API-сервиса.
     В качестве параметра функция получает временную метку.
@@ -75,7 +73,6 @@ def get_api_answer(current_timestamp):
 
 
 def check_response(response):
-    
     """
     проверяет ответ API на корректность.
     В качестве параметра функция получает ответ API,
@@ -100,7 +97,6 @@ def check_response(response):
 
 
 def parse_status(homework):
-    
     """
     извлекает из информации о конкретной
     домашней работе статус этой работы.
@@ -133,7 +129,6 @@ def parse_status(homework):
 
 
 def check_tokens():
-   
     """
     извлекает из информации о конкретной домашней работе статус этой работы.
     В качестве параметра функция получает только один элемент
@@ -147,7 +142,6 @@ def check_tokens():
 
 
 def main():
-   
     """Основная логика работы бота."""
 
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
