@@ -30,22 +30,23 @@ RETRY_TIME = 600
 ENDPOINT = 'https://practicum.yandex.ru/api/user_api/homework_statuses/'
 HEADERS = {'Authorization': f'OAuth {PRACTICUM_TOKEN}'}
 
-
-class NoncorectapiException(Exception):
-    """кастомный Exception"""
-    pass
-
-
-class HWChekError(Exception):
-    """кастомный Exception"""
-    pass
-
-
 HOMEWORK_STATUSES = {
     'approved': 'Работа проверена: ревьюеру всё понравилось. Ура!',
     'reviewing': 'Работа взята на проверку ревьюером.',
     'rejected': 'Работа проверена: у ревьюера есть замечания.'
 }
+
+
+class NoncorectapiException(Exception):
+    """кастомный Exception."""
+
+    pass
+
+
+class HWChekError(Exception):
+    """кастомный Exception."""
+
+    pass
 
 
 def send_message(bot, message):
@@ -54,7 +55,6 @@ def send_message(bot, message):
     Принимает на вход два параметра: экземпляр класса Bot и
     строку с текстом сообщения.
     """
-
     try:
         bot.send_message(TELEGRAM_CHAT_ID, message)
     except Exception:
@@ -127,7 +127,6 @@ def check_tokens():
     Если отсутствует хотя бы одна переменная окружения — функция
     должна вернуть False, иначе — True.
     """
-
     return all([PRACTICUM_TOKEN, TELEGRAM_TOKEN, TELEGRAM_CHAT_ID])
 
 
