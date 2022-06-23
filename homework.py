@@ -32,11 +32,14 @@ HEADERS = {'Authorization': f'OAuth {PRACTICUM_TOKEN}'}
 
 
 class NoncorectapiException(Exception):
+    """кастомный Exception"""
     pass
 
 
 class HWChekError(Exception):
+    """кастомный Exception"""
     pass
+
 
 HOMEWORK_STATUSES = {
     'approved': 'Работа проверена: ревьюеру всё понравилось. Ура!',
