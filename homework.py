@@ -17,10 +17,6 @@ logging.basicConfig(
 handlers = [logging.FileHandler('log.txt'),
             logging.StreamHandler(sys.stdout)]
 
-formatter = logging.Formatter(
-    '%(asctime)s, %(levelname)s, %(message)s, %(funcName)s, %(lineno)s'
-)
-
 
 PRACTICUM_TOKEN = os.getenv('PRACTICUM_TOKEN')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
@@ -132,7 +128,10 @@ def check_tokens():
 
 def main():
     """Основная логика работы бота."""
-    bot = telegram.Bot(TELEGRAM_TOKEN)
+    if not check_tokens():
+        logging.critical('Отсутствуют переменные окружения')
+        raise Exception('Отсутствуют переменные окружения')
+    bot = telegram.Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
     status = ''
     error_message = ''
