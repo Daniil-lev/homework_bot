@@ -130,7 +130,7 @@ def main():
     """Основная логика работы бота."""
     if not check_tokens():
         logging.critical('Отсутствуют переменные окружения')
-        raise Exception('Отсутствуют переменные окружения')
+        return Exception('Отсутствуют переменные окружения')
     bot = telegram.Bot(token=TELEGRAM_TOKEN)
     current_timestamp = int(time.time())
     status = ''
