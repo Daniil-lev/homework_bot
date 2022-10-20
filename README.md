@@ -22,10 +22,10 @@ https://practicum.yandex.ru/api/user_api/homework_statuses/
 Запуск на ПК
 Клонируем проект:
 
-git clone https://github.com/themasterid/homework_bot.git
+git clone https://github.com/Danii-lev/homework_bot.git
 или
 
-git clone git@github.com:themasterid/homework_bot.git
+git clone git@github.com:Danii-lev/homework_bot.git
 Переходим в папку с ботом.
 
 cd homework_bot
